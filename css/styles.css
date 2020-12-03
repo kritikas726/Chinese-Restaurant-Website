@@ -80,6 +80,59 @@ body {
   clear: both;
   margin-top: -30px;
 }
+.button-div{
+  font-weight: bold;
+  display: flex;
+  margin: 5vh;
+}
+.button-div button{
+  margin: auto;
+  background: #F6B319;
+  border-radius: 2%;
+  border: none;
+  border-color: #F6B319;
+  height: 6vh;
+  width: 25vh;
+  padding: 5px;
+}
+.button-div a{
+  text-decoration: none;
+  color: #951C49;
+}
+.form{
+  display: flex;
+  margin: 10vh;
+}
+.flex-display{
+  display: flex;
+  margin-bottom: -5vh;
+}
+form{
+  margin: auto;
+  border: 2px solid #F6B319;
+  border-radius: 20%;
+  padding: 10vh;
+  min-width: 70vh;
+}
+.cust-det-form{
+  margin: auto;
+  border: 2px solid #F6B319;
+  border-radius: 20%;
+  padding: 10vh;
+  min-width: 80vh;
+}
+.form-heading{
+  color: #F6B319;
+  font-weight: bolder;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+form label{
+  color: #F6B319;
+}
+.form-component{
+  margin: 5vh;
+}
 /* END HEADER */
 
 /* FOOTER */
