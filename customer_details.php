@@ -42,7 +42,7 @@
                 <span class="glyphicon glyphicon-home"></span> Home</a>
             </li>
             <li>
-              <a href="menu-categories.html">
+              <a href="menu_categories.html">
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
@@ -63,96 +63,40 @@
     </nav><!-- #header-nav -->
   </header>
 
-  <div id="call-btn" class="visible-xs">
-    <a class="btn" href="tel:012-345-6789">
-    <span class="glyphicon glyphicon-earphone"></span>
-    012-345-6789
-    </a>
-  </div>
-  <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
-
-  <div id="main-content" class="container">
-    <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
-    <div class="text-center">
-      Substituting white rice with brown rice or fried rice after 3:00pm will be Rs.150 for a pint and Rs.250 for a quart.
+  <div class="form">
+    <form class="cust-det-form" action="customer_details_session.php" method="POST">
+        <h1 class="form-heading">Customer Details</h1>
+      <div class="flex-display">
+        <div class="form-group form-component">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" placeholder="Enter your first name" name="C_First_Name" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group form-component">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" placeholder="Enter your last name" name="C_Last_Name" class="form-control" id="exampleInputEmail1">
+        </div>
+      </div>
+      <div class="form-group form-component">
+        <label for="exampleInputEmail1">Phone Number</label>
+        <input type="tel" placeholder="Enter your phone number" name="C_Phone_No" class="form-control" id="exampleInputEmail1">
     </div>
-
-    <section class="row">
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
+      <div class="form-group form-component">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" placeholder="Enter your email address"name="C_Email_ID"  class="form-control" id="exampleInputEmail1">
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
+      <div class="form-group form-component">
+        <label for="exampleInputEmail1">Address</label>
+        <input type="text" placeholder="Enter your full address" name="C_Address" class="form-control" id="exampleInputEmail1">
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
+      <div class="form-group form-component">
+        <label for="exampleInputEmail1">Landmark</label>
+        <input type="text" placeholder="Enter a landmark" name="C_Landmark" class="form-control" id="exampleInputEmail1">
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
+      <div class="button-div">
+          <input type="submit">
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-        <a href="single-category.html">
-          <div class="category-tile">
-            <img width="200" height="200" src="images/menu/B/B.jpg" alt="Lunch">
-            <span>Lunch</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-  </div><!-- End of #main-content -->
+    </form>
+  </div>
 
   <footer class="panel-footer">
     <div class="container">

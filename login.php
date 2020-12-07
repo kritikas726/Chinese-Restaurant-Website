@@ -63,24 +63,24 @@
     </nav><!-- #header-nav -->
   </header>
 
-    <div class="form">
-      <form>
-          <h1 class="form-heading">Order Details</h1>
-        <div class="form-group form-component">
-        <label for="exampleInputEmail1">Username</label>
-        <input type="text" placeholder="Enter your username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group form-component">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" placeholder="Enter your Password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="button-div">
-            <button type="submit">
-                <a href="index.html">CONFIRM ORDER</a>
-            </button>
-        </div>
-      </form>
-    </div>
+
+  <div class="form">
+    <form action="login_session.php" method="POST">
+        <h1 class="form-heading">Manager Login</h1>
+      <div class="form-group form-component">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="text" name="admin_name" placeholder="Enter your username" class="form-control" id="exampleInputEmail1">
+      </div>
+      <div class="form-group form-component">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="admin_password" placeholder="Enter your Password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="button-div">
+          <input type="submit">
+      </div>
+    </form>
+  </div>
+
 
   <footer class="panel-footer">
     <div class="container">

@@ -95,6 +95,18 @@ body {
   width: 25vh;
   padding: 5px;
 }
+.button-div input{
+  margin: auto;
+  background: #F6B319;
+  border-radius: 2%;
+  border: none;
+  border-color: #F6B319;
+  height: 6vh;
+  width: 25vh;
+  padding: 5px;
+  color: #951C49;
+  text-transform: uppercase;
+}
 .button-div a{
   text-decoration: none;
   color: #951C49;

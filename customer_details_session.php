@@ -1,3 +1,35 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "chinese-restaurant-website";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start();
+$C_First_Name=$C_Last_Name=$C_Phone_No=$C_Email_ID=$C_Address=$C_Landmark="";
+if(!isset($_POST['submit'])){
+  $C_First_Name=$_POST['C_First_Name'];
+  $C_Last_Name=$_POST['C_Last_Name'];
+  $C_Phone_No=$_POST['C_Phone_No'];
+  $C_Email_ID=$_POST['C_Email_ID'];
+  $C_Address=$_POST['C_Address'];
+  $C_Landmark=$_POST['C_Landmark'];
+}
+
+$sql = "INSERT INTO Customer_Details (C_First_Name,C_Last_Name,C_Phone_No,C_Email_ID,C_Address,C_Landmark)
+VALUES ('$C_First_Name','$C_Last_Name','$C_Phone_No','$C_Email_ID','$C_Address','$C_Landmark')";
+if ($conn->query($sql) === TRUE) {
+    
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+$conn->close();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,7 +74,7 @@
                 <span class="glyphicon glyphicon-home"></span> Home</a>
             </li>
             <li>
-              <a href="menu-categories.html">
+              <a href="menu_categories.html">
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
@@ -63,42 +95,17 @@
     </nav><!-- #header-nav -->
   </header>
 
-  <div class="form">
-    <form class="cust-det-form">
-        <h1 class="form-heading">Customer Details</h1>
-      <div class="flex-display">
-        <div class="form-group form-component">
-            <label for="exampleInputEmail1">First Name</label>
-            <input type="text" placeholder="Enter your first name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="form">
+      <form>
+        <h1 class="form-heading">Do you want to order?</h1>
+        <div class="button-div">
+            <button><a href="order.html">YAY!!!</a></button>
         </div>
-        <div class="form-group form-component">
-            <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" placeholder="Enter your last name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div class="button-div">
+            <button><a href="index.html">NAH!!!</a></button>
         </div>
-      </div>
-      <div class="form-group form-component">
-        <label for="exampleInputEmail1">Phone Number</label>
-        <input type="tel" placeholder="Enter your phone number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </form>
     </div>
-      <div class="form-group form-component">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" placeholder="Enter your email address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group form-component">
-        <label for="exampleInputEmail1">Address</label>
-        <input type="text" placeholder="Enter your full address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group form-component">
-        <label for="exampleInputEmail1">Landmark</label>
-        <input type="text" placeholder="Enter a landmark" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="button-div">
-          <button type="submit">
-              <a href="order.html">SUBMIT</a>
-          </button>
-      </div>
-    </form>
-  </div>
 
   <footer class="panel-footer">
     <div class="container">
@@ -132,3 +139,5 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+<?php
+?>
