@@ -220,11 +220,10 @@ form label{
   opacity: .8;
 }
 form input {
-  position: absolute;
   bottom: 0;
   right: 0;
   width: 100%;
-  text-align: center;
+  text-align: left;
   font-size: 1.6em;
   text-transform: uppercase;
   background-color: #000;
