@@ -1,35 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "chinese-restaurant-website";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-session_start();
-$C_First_Name=$C_Last_Name=$C_Phone_No=$C_Email_ID=$C_Address=$C_Landmark="";
-if(!isset($_POST['submit'])){
-  $C_First_Name=$_POST['C_First_Name'];
-  $C_Last_Name=$_POST['C_Last_Name'];
-  $C_Phone_No=$_POST['C_Phone_No'];
-  $C_Email_ID=$_POST['C_Email_ID'];
-  $C_Address=$_POST['C_Address'];
-  $C_Landmark=$_POST['C_Landmark'];
-}
-
-$sql = "INSERT INTO Customer_Details (C_First_Name,C_Last_Name,C_Phone_No,C_Email_ID,C_Address,C_Landmark)
-VALUES ('$C_First_Name','$C_Last_Name','$C_Phone_No','$C_Email_ID','$C_Address','$C_Landmark')";
-if ($conn->query($sql) === TRUE) {
-    
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-$conn->close();
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -94,18 +62,37 @@ $conn->close();
       </div><!-- .container -->
     </nav><!-- #header-nav -->
   </header>
-
-    <div class="form">
-      <form>
-        <h1 class="form-heading">Do you want to order?</h1>
-        <div class="button-div">
-            <button><a href="order.php">YAY!!!</a></button>
-        </div>
-        <div class="button-div">
-            <button><a href="index.html">NAH!!!</a></button>
-        </div>
-      </form>
-    </div>
+  
+  <div class="form">
+    <form action="billing.php" method="POST">
+      <h1 class="form-heading">Order Details</h1>
+      <div class="form-group form-component">
+        <h3 class="form-heading">Select your order</h3>
+        <?php
+          include 'connect.php';
+          $sql = "SELECT Item_Title, Item_Price FROM menu_categories";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+              ?>
+            <input type="checkbox" name="Item_Price[]" value="<?php echo $row['Item_Price'] ?>">
+            <label for="<?php echo $row['Item_Title'] ?>"><?php echo $row['Item_Title'] ?></label><br>
+            <?php
+          }
+          } else {
+            echo "0 results";
+          }
+          ?>
+      </div>
+      <div class="button-div">
+        <input type="submit" value="submit">
+      </div>
+    </form>
+  </div>
+  <?php
+  $conn->close();
+?>
 
   <footer class="panel-footer">
     <div class="container">

@@ -1,35 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "chinese-restaurant-website";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-session_start();
-$C_First_Name=$C_Last_Name=$C_Phone_No=$C_Email_ID=$C_Address=$C_Landmark="";
-if(!isset($_POST['submit'])){
-  $C_First_Name=$_POST['C_First_Name'];
-  $C_Last_Name=$_POST['C_Last_Name'];
-  $C_Phone_No=$_POST['C_Phone_No'];
-  $C_Email_ID=$_POST['C_Email_ID'];
-  $C_Address=$_POST['C_Address'];
-  $C_Landmark=$_POST['C_Landmark'];
-}
-
-$sql = "INSERT INTO Customer_Details (C_First_Name,C_Last_Name,C_Phone_No,C_Email_ID,C_Address,C_Landmark)
-VALUES ('$C_First_Name','$C_Last_Name','$C_Phone_No','$C_Email_ID','$C_Address','$C_Landmark')";
-if ($conn->query($sql) === TRUE) {
-    
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-$conn->close();
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -95,17 +63,49 @@ $conn->close();
     </nav><!-- #header-nav -->
   </header>
 
-    <div class="form">
-      <form>
-        <h1 class="form-heading">Do you want to order?</h1>
-        <div class="button-div">
-            <button><a href="order.php">YAY!!!</a></button>
-        </div>
-        <div class="button-div">
-            <button><a href="index.html">NAH!!!</a></button>
-        </div>
-      </form>
-    </div>
+  <div id="call-btn" class="visible-xs">
+    <a class="btn" href="tel:012-345-6789">
+      <span class="glyphicon glyphicon-earphone"></span>
+      012-345-6789
+    </a>
+  </div>
+  <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+  <?php
+  include 'connect.php';
+    $sql = "SELECT Item_Name, Item_Title,Item_Type, Item_Price, Item_Description FROM menu_categories";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        ?>
+          <div id="main-content col-md-6" class="container">
+            <section class="row">
+              <div class="menu-item-tile col-md-6">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="menu-item-photo">
+                      <div><?php echo $row["Item_Name"]; ?></div>
+                      <img class="img-responsive" width="250" height="150" src="images/menu/<?php echo$row["Item_Type"]; ?>/<?php echo$row["Item_Name"]; ?>.jpg" alt="Item">
+                    </div>
+                    <div class="menu-item-price">Rs.<?php echo $row["Item_Price"]; ?></div>
+                  </div>
+                  <div class="menu-item-description col-sm-7">
+                    <h3 class="menu-item-title"><?php echo $row["Item_Title"]; ?></h3>
+                    <p class="menu-item-details"><?php echo $row["Item_Description"]; ?></p>
+                  </div>
+                </div>
+                <hr class="visible-xs">
+              </div>
+            </section>
+        </div><!-- End of #main-content -->
+      <?php
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    ?>
 
   <footer class="panel-footer">
     <div class="container">

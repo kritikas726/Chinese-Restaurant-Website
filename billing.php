@@ -1,35 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "chinese-restaurant-website";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-session_start();
-$C_First_Name=$C_Last_Name=$C_Phone_No=$C_Email_ID=$C_Address=$C_Landmark="";
-if(!isset($_POST['submit'])){
-  $C_First_Name=$_POST['C_First_Name'];
-  $C_Last_Name=$_POST['C_Last_Name'];
-  $C_Phone_No=$_POST['C_Phone_No'];
-  $C_Email_ID=$_POST['C_Email_ID'];
-  $C_Address=$_POST['C_Address'];
-  $C_Landmark=$_POST['C_Landmark'];
-}
-
-$sql = "INSERT INTO Customer_Details (C_First_Name,C_Last_Name,C_Phone_No,C_Email_ID,C_Address,C_Landmark)
-VALUES ('$C_First_Name','$C_Last_Name','$C_Phone_No','$C_Email_ID','$C_Address','$C_Landmark')";
-if ($conn->query($sql) === TRUE) {
-    
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-$conn->close();
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -96,16 +64,46 @@ $conn->close();
   </header>
 
     <div class="form">
-      <form>
-        <h1 class="form-heading">Do you want to order?</h1>
+      <form action="index.html" method="POST">
+      <?php
+        include 'connect.php';
+        if (isset($_POST['Item_Price'])) {
+            $food = $_POST['Item_Price'];
+            $c = count($food);
+            $price=0.0;
+            for($i=0;$i<$c;$i++){
+                $price += $food[$i];
+            }
+        } else {
+            echo "You did not choose a dish.";
+        }
+        $conn->close();
+        ?>
+        <h1 class="form-heading">Your billing amount is:<br></h1>
+        <h2 class="form-heading"><?php echo $price; ?></h2>
+        <h3 class="form-heading">Do you want to submit your order?</h3>
         <div class="button-div">
-            <button><a href="order.php">YAY!!!</a></button>
+        <input type="submit" value="submit">
         </div>
         <div class="button-div">
             <button><a href="index.html">NAH!!!</a></button>
         </div>
       </form>
     </div>
+    <?php
+    include 'connect.php';
+    if(!isset($_POST['submit'])){
+        $pricee=$_POST['price'];
+    }
+    $sql = "INSERT INTO Customer_Details (Order_Price)
+    VALUES ('$price')";
+    if ($conn->query($sql) === TRUE) {
+        
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  $conn->close();
+?>
 
   <footer class="panel-footer">
     <div class="container">

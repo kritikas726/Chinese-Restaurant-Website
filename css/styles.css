@@ -133,6 +133,9 @@ form{
   padding: 10vh;
   min-width: 80vh;
 }
+h4{
+  color: #F6B319;
+}
 .form-heading{
   color: #F6B319;
   font-weight: bolder;
@@ -205,6 +208,18 @@ form label{
   background-position: center;
 }
 #menu-tile span, #specials-tile span, #map-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  opacity: .8;
+}
+form input {
   position: absolute;
   bottom: 0;
   right: 0;
