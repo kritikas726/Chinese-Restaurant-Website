@@ -219,17 +219,6 @@ form label{
   color: #fff;
   opacity: .8;
 }
-form input {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  text-align: left;
-  font-size: 1.6em;
-  text-transform: uppercase;
-  background-color: #000;
-  color: #fff;
-  opacity: .8;
-}
 /* END HOME PAGE */
 
 /* MENU CATEGORIES PAGE */
