@@ -77,7 +77,7 @@
             while($row = $result->fetch_assoc()) {
               ?>
             <input type="checkbox" name="Item_Price[]" value="<?php echo $row['Item_Price'] ?>">
-            <label for="<?php echo $row['Item_Title'] ?>"><?php echo $row['Item_Title'] ?></label><br>
+            <label for="<?php echo $row['Item_Title'] ?>"><?php echo $row['Item_Title']." - Rs.".$row['Item_Price']?></label><br>
             <?php
           }
           } else {
